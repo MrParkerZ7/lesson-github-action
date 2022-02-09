@@ -34,11 +34,22 @@ jobs:
     - name: step 3 custom command
       run: ${{github.event.inputs.command_line}}
 
-    - name: step 4 check branch
+    - name: step 4 check current branch
       run: |
         GITHUB_REF=refs/heads/feature-branch-1
         echo ${GITHUB_REF##*/}
         echo running on branch ${GITHUB_REF##*/}
+
+    - uses: actions/checkout@v1
+      with:
+        ref: qa
         
-    - name: step 5 echo 
+    - name: step 5 check new branch       
+      run: |
+        GITHUB_REF=refs/heads/feature-branch-1
+        echo ${GITHUB_REF##*/}
+        echo running on branch ${GITHUB_REF##*/}
+
+    - name: step 6 echo 
       run: echo ${{github.event.inputs.message}}
+
