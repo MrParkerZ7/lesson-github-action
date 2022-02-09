@@ -36,7 +36,7 @@ jobs:
 
     - name: step 4 check current branch
       run: |
-        GITHUB_REF=refs/heads/feature-branch-1
+        GITHUB_REF=refs/dev
         echo ${GITHUB_REF##*/}
         echo running on branch ${GITHUB_REF##*/}
 
