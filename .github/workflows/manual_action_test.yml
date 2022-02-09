@@ -34,12 +34,10 @@ jobs:
     - name: step 3 custom command
       run: ${{github.event.inputs.command_line}}
 
-    - uses: actions/setup-node@v1
-      with:
-        ref: master
-        
     - name: step 4 check branch
-      run: git branch --show-current
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
 
     - name: step 5 echo 
       run: echo ${{github.event.inputs.message}}
