@@ -26,7 +26,7 @@ jobs:
     - name: step 1 Install 
       run: |
         npm ci
-        npm install
+        npm run reinstall
     
     - name: step 2 Test
-      run: npm test
+      run: npm run test
