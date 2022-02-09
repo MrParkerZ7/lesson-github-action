@@ -2,7 +2,7 @@ name: Manual Action
 
 on:
   workflow_dispatch:
-    input:
+    inputs:
       command_line:
         description: 'some command line'
         required: true
