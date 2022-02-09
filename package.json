@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "clean": "wsl rm -rf node_modules",     
+    "clean": "rm -rf node_modules",     
     "reinstall": "npm run clean && npm install",
     "test": "jest --coverage --env=node"
   },
