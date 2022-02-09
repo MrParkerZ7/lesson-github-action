@@ -42,12 +42,17 @@ jobs:
 
     - uses: actions/checkout@v1
       with:
-        ref: qa
+        ref: master
+        
+    - run: |
+        GITHUB_REF=refs/qa
+        echo ${GITHUB_REF##*/}
+        echo running on branch ${GITHUB_REF##*/}
         
     - run: |
         echo ${GITHUB_REF##*/}
         echo running on branch ${GITHUB_REF##*/}
 
-    - name: step 6 echo 
+    - name: step echo 
       run: echo ${{github.event.inputs.message}}
 
