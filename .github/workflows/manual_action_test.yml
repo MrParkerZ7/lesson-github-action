@@ -34,5 +34,8 @@ jobs:
     - name: step 3 custom command
       run: ${{github.event.inputs.command_line}}
 
-    - name: step 4 echo 
+    - name: step 4 check branch
+      run: git branch --show-current
+
+    - name: step 5 echo 
       run: echo ${{github.event.inputs.message}}
