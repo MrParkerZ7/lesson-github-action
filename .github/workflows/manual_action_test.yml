@@ -45,7 +45,6 @@ jobs:
         ref: qa
         
     - run: |
-        GITHUB_REF=refs/heads/feature-branch-1
         echo ${GITHUB_REF##*/}
         echo running on branch ${GITHUB_REF##*/}
 
