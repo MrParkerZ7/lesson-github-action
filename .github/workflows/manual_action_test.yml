@@ -35,9 +35,10 @@ jobs:
       run: ${{github.event.inputs.command_line}}
 
     - name: step 4 check branch
-      shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: extract_branch
-
+      run: |
+        GITHUB_REF=refs/heads/feature-branch-1
+        echo ${GITHUB_REF##*/}
+        echo running on branch ${GITHUB_REF##*/}
+        
     - name: step 5 echo 
       run: echo ${{github.event.inputs.message}}
