@@ -1,7 +1,17 @@
-name: Action Node Test
+name: Manual Action
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    input:
+      command_line:
+        description: 'some command line'
+        required: true
+        default: 'npm --version'
+      message:
+        description: 'some echo'
+        required: false
+        default: '' 
+
 
 jobs:
   test:
@@ -15,8 +25,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         
-    - name: step 1 Install 
+    - name: step 1 install 
       run: npm install
     
-    - name: step 2 Test
+    - name: step 2 test
       run: npm test
+
+    - name: step 3 custom command
+      run: ${{github.event.inputs.command_line}}
+
+    - name: step 4 echo 
+      run: ${{github.event.inputs.message}}
