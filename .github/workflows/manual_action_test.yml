@@ -42,8 +42,20 @@ jobs:
         
     - uses: actions/setup-node@v1
       with:
-        ref: qa
+         ref: qa
 
+    - name: Check out repository
+      uses: actions/checkout@v2
+      with:
+        repository: training-github-action/dev
+        ref: v1.0
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+    - name: step check current branch
+      run: |
+        echo ${GITHUB_REF##*/}
+        echo running on branch ${GITHUB_REF##*/}
+        
     - name: step echo 
       run: echo ${{github.event.inputs.message}}
 
