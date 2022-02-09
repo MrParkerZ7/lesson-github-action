@@ -39,20 +39,10 @@ jobs:
         GITHUB_REF=refs/dev
         echo ${GITHUB_REF##*/}
         echo running on branch ${GITHUB_REF##*/}
-
-    - name: switch branch
-      shell: bash
-      run: echo "##[set-output name=dev;]$(echo ${GITHUB_REF##*/})"
-      id: extract_branch
         
-    - run: |
-        GITHUB_REF=refs/qa
-        echo ${GITHUB_REF##*/}
-        echo running on branch ${GITHUB_REF##*/}
-        
-    - run: |
-        echo ${GITHUB_REF##*/}
-        echo running on branch ${GITHUB_REF##*/}
+    - uses: actions/setup-node@v1
+      with:
+        ref: qa
 
     - name: step echo 
       run: echo ${{github.event.inputs.message}}
