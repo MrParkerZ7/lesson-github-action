@@ -35,4 +35,4 @@ jobs:
       run: ${{github.event.inputs.command_line}}
 
     - name: step 4 echo 
-      run: ${{github.event.inputs.message}}
+      run: echo ${{github.event.inputs.message}}

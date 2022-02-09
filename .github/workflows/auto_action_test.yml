@@ -1,8 +1,8 @@
 name: Auto Action
 
 on:
-  push:
-    branches: [ master ]
+  # push:
+  #   branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -18,8 +18,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         
-    - name: step 1 Install 
+    - name: step 1 install 
       run: npm install
     
-    - name: step 2 Test
+    - name: step 2 test
       run: npm test
