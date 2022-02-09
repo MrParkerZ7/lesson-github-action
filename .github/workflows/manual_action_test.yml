@@ -43,10 +43,12 @@ jobs:
     - uses: actions/checkout@v1
       with:
         ref: qa
-        run: |
-          GITHUB_REF=refs/heads/feature-branch-1
-          echo ${GITHUB_REF##*/}
-          echo running on branch ${GITHUB_REF##*/}
+        
+    - name: step 5 check current branch
+      run: |
+        GITHUB_REF=refs/heads/feature-branch-1
+        echo ${GITHUB_REF##*/}
+        echo running on branch ${GITHUB_REF##*/}
 
     - name: step 6 echo 
       run: echo ${{github.event.inputs.message}}
