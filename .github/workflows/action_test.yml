@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Action Node Test
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
     name: Running Npm Test
     runs-on: ubuntu-latest
 
@@ -23,8 +23,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         
-    - name: Install 
-    - run: npm i
+    - name: step 1 Install 
+      run: npm i
     
-    - name: Test
-    - run: npm test
+    - name: step 2 Test
+      run: npm test
