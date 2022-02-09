@@ -11,22 +11,15 @@ jobs:
     name: Running Npm Test
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
         
     - name: step 1 Install 
-      run: |
-        npm ci
-        npm run reinstall
+      run: npm install
     
     - name: step 2 Test
-      run: npm run test
+      run: npm test
