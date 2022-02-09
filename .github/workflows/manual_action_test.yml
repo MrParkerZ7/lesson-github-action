@@ -40,9 +40,10 @@ jobs:
         echo ${GITHUB_REF##*/}
         echo running on branch ${GITHUB_REF##*/}
 
-    - uses: actions/checkout@v1
-      with:
-        ref: master
+    - name: switch branch
+      shell: bash
+      run: echo "##[set-output name=dev;]$(echo ${GITHUB_REF##*/})"
+      id: extract_branch
         
     - run: |
         GITHUB_REF=refs/qa
